@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+        {% if user.is_authenticated %}
+        <div class="text-center">
+            {% for msg in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+             <strong>{{user.username}} </strong>{{msg}}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+            {% endfor %}
+        <hr>
+            <div class="text-center">
+        <hr>
+        <h1 class="text-success">WELCOME TO THE NATIONAL BANK </h1><br>
+  <h6 class="text-primary">Bank Account Application. Apply here.</h6>
+  <a href="{% url 'account_application' %}" class="btn btn-primary">APPLY</a>
+
+
+        <hr>
+
+        </div>
+        {% else %}
+            <hr>
+<h1 style="text-align:center">Welcome to the National Bank</h1><br>
+</hr>
+  {% endif %}
+    </div>
+
+
+
+{% endblock %}
